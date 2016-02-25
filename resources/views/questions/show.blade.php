@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Show Question Page</title>
+	<title>{{ $object->title }}</title>
 </head>
 <body>
-	<h1>Show Question Page</h1>
-	<p>More coming soon...</p>
+	<h1>{{ $object->title }}</h1>
+	<p><?php echo $object->description; ?></p>
+	<pre>
+		<?php echo $object->code; ?>
+	</pre>
+	<p>Question Date: <?php echo $object->created_at; ?></p>
 </body>
 </html>
