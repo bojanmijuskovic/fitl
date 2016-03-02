@@ -6,11 +6,15 @@
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
+
 <body>	
 	
 	@include('shared.header')
 
 	<div class="container">
+	@include('shared.errors')
+	@include('shared.message')
+
 	@yield('content')
 	</div>
 

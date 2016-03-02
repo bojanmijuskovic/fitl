@@ -33,7 +33,12 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        $question = new Question;
+        $data = array();
+
+        $data['question'] = $question;
+
+        return view('questions.create', $data);
     }
 
     /**
@@ -44,7 +49,31 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = new Question;
+
+        // set the question's data from the form data
+        $question->title = $request->title;
+        $question->description = $request->description;
+        $question->code = $request->code;
+
+        // create the new question in the database
+        if (!$question->save()) {
+            $errors = $question->getErrors();
+            
+            // redirect back to the create page
+            // and pass alon the errors
+            return redirect()
+                ->action('QuestionController@create')
+                ->with('errors', $errors)
+                ->withInput();
+        }
+
+        // success!
+        return redirect()
+            ->action('QuestionController@index')
+            ->with('message',
+                '<div class="alert alert-success">Question created successfully</div>');
+
     }
 
     /**
