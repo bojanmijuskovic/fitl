@@ -10,20 +10,7 @@
 
 {!! Form::model($question, ['action' => 'QuestionController@store']) !!}
 
-	<div class="form-qroup">
-		{!! Form::label('title', 'What is your question?') !!}
-		{!! Form::text('title', '', ['class' => 'form-control']) !!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('description', 'Describe your situation in more detail.') !!}
-		{!! Form::textarea('description', '', ['class' => 'form-control']) !!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('code', 'Include a code sample, (optional)') !!}
-		{!! Form::textarea('code', '', ['class' => 'form-control']) !!}
-	</div>
+	@include('questions.partials.object_form')
 
 	<button class="btn btn-success">Submit Your Question!</button>
 
