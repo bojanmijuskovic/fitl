@@ -127,7 +127,6 @@ class QuestionController extends Controller
         // redirect back to the edit page
         // and show errors
         if (!$question->save()) {
-            $errors = $question->getErrors();
             
             // redirect back to the create page
             // and pass alon the errors
@@ -155,6 +154,13 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question = Question::findOrFail($id);
+
+        $question->delete();
+
+        return redirect()
+            ->action('QuestionController@index')
+            ->with('message',
+            '<div class="alert alert-info">The question was deleted.</div>'); 
     }
 }
