@@ -9,7 +9,7 @@
 
 <div class="list-group">
 	@foreach($objects as $question)
-		<a href="{{ url('question', [$question->id]) }}" class="list-group-item">
+		<a href="{{ url('questions', [$question->id]) }}" class="list-group-item">
 			<h2 class="list-group-item-heading">{{ $question->title }}</h2>
 			<p class="list-group-item-text">Submitted on {{ $question->created_at }}</p>
 		</a>
