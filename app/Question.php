@@ -19,4 +19,8 @@ class Question extends Model
 	{
 		return $this->hasMany('App\Comment')->orderBy('created_at', 'desc');
 	}
+
+	public function languages() {
+		return $this->belongsToMany('App\Language', 'questions_languages');
+	}
 }
