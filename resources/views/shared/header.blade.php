@@ -18,7 +18,10 @@
 		        <li><a href="{{ url('contact') }}">Contact</a></li>
 	        </ul>
 
+	        @include('shared.user_actions')
+
 	        @include('shared.question_search_form')
+	        
 	    </div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>

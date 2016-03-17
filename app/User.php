@@ -36,4 +36,18 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+    *
+    *
+    * @return string
+    */
+    public function getFirstNameAttribute() 
+    {
+        $name = $this->name;
+        $name_parts = explode(' ', $name);
+        $first_name = $name_parts[0];
+
+        return $first_name;
+    }
 }

@@ -26,8 +26,6 @@ Route::get('about', 'PageController@about');
 Route::get('contact', 'PageController@contact');
 
 
-
-
 Route::delete('questions/{question}', 'QuestionController@destroy');
 Route::get('questions/{question}/edit', 'QuestionController@edit');
 Route::put('questions/{question}', 'QuestionController@update');
@@ -42,5 +40,8 @@ Route::resource('questions.comments','QuestionCommentController', ['only' => ['s
 Route::resource('languages', 'LanguageController');
 
 // User routes
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register','Auth\AuthController@postRegister');
